@@ -1,0 +1,399 @@
+[
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pipeline_Execution_Preparation_and_Dry_run_7_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pipeline Execution Preparation and Dry-run",
+        "sectionNumber": "7",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pre_requisites_7_1_text",
+                        "conditions": [
+                            {
+                                "function": {
+                                    "name": "",
+                                    "argList": [],
+                                    "argType": "defined",
+                                    "returnType": ""
+                                },
+                                "conditionText": ""
+                            }
+                        ],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pre-requisites",
+        "sectionNumber": "7.1",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Access_Requirement_7_1_1_text",
+                        "conditions": [
+                            {
+                                "function": {
+                                    "name": "fn_genai_step_by_step",
+                                    "argList": [
+                                        {
+                                            "type": "datasource",
+                                            "dataSource": {
+                                                "type": "CNDAG PIPELINE",
+                                                "version": "1.35",
+                                                "contentSearch": "",
+                                                "sectionSearch": "Access Requirement",
+                                                "dsId": "00000000-0000-0000-0002-000000000009"
+                                            }
+                                        }
+                                    ],
+                                    "argType": "undefined",
+                                    "returnType": "String",
+                                    "replacement": "",
+                                    "specialInstruction": ""
+                                },
+                                "conditionText": ""
+                            }
+                        ],
+                        "generationType": "genai"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Access Requirement",
+        "sectionNumber": "7.1.1",
+        "generationType": "genai"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Software_Requirement_7_1_2_text",
+                        "conditions": [
+                            {
+                                "function": {
+                                    "name": "fn_genai_step_by_step",
+                                    "argList": [
+                                        {
+                                            "type": "datasource",
+                                            "dataSource": {
+                                                "type": "CNDAG PIPELINE",
+                                                "version": "1.35",
+                                                "contentSearch": "",
+                                                "sectionSearch": "Software Requirement",
+                                                "dsId": "00000000-0000-0000-0002-000000000009"
+                                            }
+                                        }
+                                    ],
+                                    "argType": "undefined",
+                                    "returnType": "String",
+                                    "replacement": "",
+                                    "specialInstruction": ""
+                                },
+                                "conditionText": ""
+                            }
+                        ],
+                        "generationType": "genai"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Software Requirement",
+        "sectionNumber": "7.1.2",
+        "generationType": "genai"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Environment_readiness_for_Pipeline_Execution_7_2_text",
+                        "conditions": [
+                            {
+                                "function": {
+                                    "name": "",
+                                    "argList": [],
+                                    "argType": "defined",
+                                    "returnType": ""
+                                },
+                                "conditionText": ""
+                            }
+                        ],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Environment readiness for Pipeline Execution",
+        "sectionNumber": "7.2",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pipeline_Execution_Upgrade_8_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pipeline Execution \u2013 Upgrade",
+        "sectionNumber": "8",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pipeline_Overview_8_1_text",
+                        "conditions": [
+                            {
+                                "function": {
+                                    "name": "fn_genai_step_by_step",
+                                    "argList": [
+                                        {
+                                            "type": "datasource",
+                                            "dataSource": {
+                                                "type": "CNDAG PIPELINE",
+                                                "version": "1.35",
+                                                "contentSearch": "",
+                                                "sectionSearch": "Pipeline Overview",
+                                                "dsId": "00000000-0000-0000-0002-000000000009"
+                                            }
+                                        }
+                                    ],
+                                    "argType": "undefined",
+                                    "returnType": "String",
+                                    "replacement": "",
+                                    "specialInstruction": ""
+                                },
+                                "conditionText": ""
+                            }
+                        ],
+                        "generationType": "genai"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pipeline Overview",
+        "sectionNumber": "8.1",
+        "generationType": "genai"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pipeline_Architecture_Diagram_8_2_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pipeline Architecture Diagram",
+        "sectionNumber": "8.2",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pipeline_Variables_Reference_Table_8_3_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pipeline Variables Reference Table",
+        "sectionNumber": "8.3",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Job_Naming_Convention_8_4_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Job Naming Convention",
+        "sectionNumber": "8.4",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Hint_Block_Legend_8_5_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Hint Block Legend",
+        "sectionNumber": "8.5",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Stage_Execution_Matrix_8_6_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Stage Execution Matrix",
+        "sectionNumber": "8.6",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Pipeline_Stages_and_Jobs_8_7_text",
+                        "conditions": [
+                            {
+                                "function": {
+                                    "name": "fn_genai_step_by_step",
+                                    "argList": [
+                                        {
+                                            "type": "datasource",
+                                            "dataSource": {
+                                                "type": "CNDAG PIPELINE",
+                                                "version": "1.35",
+                                                "contentSearch": "",
+                                                "sectionSearch": "Pipeline Stages and Jobs",
+                                                "dsId": "00000000-0000-0000-0002-000000000009"
+                                            }
+                                        }
+                                    ],
+                                    "argType": "undefined",
+                                    "returnType": "String",
+                                    "replacement": "",
+                                    "specialInstruction": ""
+                                },
+                                "conditionText": ""
+                            }
+                        ],
+                        "generationType": "genai"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Pipeline Stages and Jobs",
+        "sectionNumber": "8.7",
+        "generationType": "genai"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Key_Features_8_8_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Key Features",
+        "sectionNumber": "8.8",
+        "generationType": "na"
+    },
+    {
+        "content": [
+            {
+                "type": "paragraph",
+                "label": "Paragraph",
+                "fields": [
+                    {
+                        "name": "NA",
+                        "jinjaTag": "pg_Troubleshooting_Quick_Reference_8_9_text",
+                        "conditions": [],
+                        "generationType": "na"
+                    }
+                ]
+            }
+        ],
+        "sectionName": "Troubleshooting Quick Reference",
+        "sectionNumber": "8.9",
+        "generationType": "na"
+    }
+]
