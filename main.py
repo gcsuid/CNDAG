@@ -71,38 +71,57 @@ import os
 
 from docx import Document
 
+from docx import Document
+
+from docx import Document
+
 def keep_only_section(doc_path: str, section_search: str):
     doc = Document(doc_path)
     body = doc.element.body
     blocks = list(body)
 
-    capture = False
-    kept_blocks = []
+    # Map paragraph XML -> paragraph index
+    para_map = {
+        p._element: p for p in doc.paragraphs
+    }
 
-    for block in blocks:
-        text = "".join(
-            node.text or ""
-            for node in block.iter()
-            if node.tag.endswith("}t")
-        ).strip()
+    start_idx = None
+    start_level = None
 
-        # start capture when section title is found
-        if not capture and section_search.lower() in text.lower():
-            capture = True
+    # Find start index and heading level
+    for i, block in enumerate(blocks):
+        para = para_map.get(block)
+        if para:
+            text = para.text.strip()
+            if section_search.lower() in text.lower():
+                style = para.style.name
+                if style.startswith("Heading"):
+                    start_level = int(style.split()[-1])
+                    start_idx = i
+                    break
 
-        # stop at next numbered section
-        elif capture and text and text[0].isdigit() and section_search.lower() not in text.lower():
-            break
+    # If section not found, leave document unchanged
+    if start_idx is None:
+        doc.save(doc_path)
+        return
 
-        if capture:
-            kept_blocks.append(block)
+    # Find end index
+    end_idx = len(blocks)
 
-    # remove everything
+    for i in range(start_idx + 1, len(blocks)):
+        para = para_map.get(blocks[i])
+        if para and para.style.name.startswith("Heading"):
+            level = int(para.style.name.split()[-1])
+            if level <= start_level:
+                end_idx = i
+                break
+
+    # Remove everything
     for block in blocks:
         body.remove(block)
 
-    # add back only the kept section
-    for block in kept_blocks:
+    # Restore only the section range
+    for block in blocks[start_idx:end_idx]:
         body.append(block)
 
     doc.save(doc_path)
