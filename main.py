@@ -59,79 +59,87 @@ def clone_paragraph(src_paragraph, dest_doc):
         new_run.font.name = run.font.name
         new_run.font.size = run.font.size
 
+import shutil
 
-import os
+def copy_reference_doc(reference_doc_path, output_doc_path):
+    shutil.copy(reference_doc_path, output_doc_path)
+
+
 from docx import Document
 from copy import deepcopy
 import os
 
-def extract_single_section_to_word(
-    reference_doc_path: str,
-    section_search: str,
-    output_dir: str,
-    output_filename: str
-):
-    os.makedirs(output_dir, exist_ok=True)
-    output_path = os.path.join(output_dir, output_filename)
+from docx import Document
 
-    ref_doc = Document(reference_doc_path)
-    out_doc = Document()
+def keep_only_section(doc_path: str, section_search: str):
+    doc = Document(doc_path)
+    body = doc.element.body
+    blocks = list(body)
 
     capture = False
+    kept_blocks = []
 
-    for block in ref_doc.element.body:
-        text_content = ""
+    for block in blocks:
+        text = "".join(
+            node.text or ""
+            for node in block.iter()
+            if node.tag.endswith("}t")
+        ).strip()
 
-        # Extract visible text from block
-        for node in block.iter():
-            if node.tag.endswith("}t") and node.text:
-                text_content += node.text
-
-        text_content = text_content.strip()
-
-        # START capture: subsection title match
-        if not capture and section_search.lower() in text_content.lower():
+        # start capture when section title is found
+        if not capture and section_search.lower() in text.lower():
             capture = True
 
-        # STOP capture: next numbered section at same or higher level
-        elif capture and text_content and text_content[0].isdigit() and section_search.lower() not in text_content.lower():
+        # stop at next numbered section
+        elif capture and text and text[0].isdigit() and section_search.lower() not in text.lower():
             break
 
         if capture:
-            out_doc.element.body.append(deepcopy(block))
+            kept_blocks.append(block)
 
-    out_doc.save(output_path)
-    return output_path
+    # remove everything
+    for block in blocks:
+        body.remove(block)
 
+    # add back only the kept section
+    for block in kept_blocks:
+        body.append(block)
+
+    doc.save(doc_path)
+
+import os
 
 def generate_all_cndag_subdocs(
     json_data,
     reference_doc_path,
     output_dir
 ):
+    os.makedirs(output_dir, exist_ok=True)
+
     jobs = extract_cndag_jobs(json_data)
     results = []
 
     for job in jobs:
         section = job["section_search"]
         safe_name = section.replace(" ", "_")
-        filename = f"CNDAG_{safe_name}.docx"
-
-        path = extract_single_section_to_word(
-            reference_doc_path=reference_doc_path,
-            section_search=section,
-            output_dir=output_dir,
-            output_filename=filename
+        output_path = os.path.join(
+            output_dir,
+            f"CNDAG_{safe_name}.docx"
         )
+
+        # ✅ step 1: copy original doc
+        copy_reference_doc(reference_doc_path, output_path)
+
+        # ✅ step 2: remove everything except this section
+        keep_only_section(output_path, section)
 
         results.append({
             "section": section,
-            "file_path": path,
+            "file_path": output_path,
             "ds_id": job["ds_id"]
         })
 
     return results
-
 
 if __name__ == "__main__":
     json_data = base64_txt_to_json("json_b64.txt")
