@@ -1,5 +1,6 @@
 import base64
 import json
+import os
 
 def base64_txt_to_json(input_file, output_file=None):
 
@@ -126,7 +127,7 @@ def keep_only_section(doc_path: str, section_search: str):
 
     doc.save(doc_path)
 
-import os
+
 
 def generate_all_cndag_subdocs(
     json_data,
